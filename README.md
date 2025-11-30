@@ -7,16 +7,22 @@ The model is built and tested using a synthesized dataset of African and global 
 
 # 2. Model Explanation and Technical Approach
 The fake news detection system is a Supervised Machine Learning Classifier based on textual features. The core steps of the model are as follows:
+
 A. Data Preprocessing and Feature Engineering
+
 Text Cleaning: News article titles are standardized by converting them to lowercase and removing punctuation, special characters, and numbers.
 Stop Word Removal: Common English stop words (like 'the', 'a', 'is') are removed to focus the model on meaningful, content-bearing terms.
 Tokenization: The remaining text is broken down into individual words (tokens).
 Keyword Enrichment (Simulated): A synthetic keywords feature is created, mimicking the real-world strategy where fact-checkers manually tag articles. This feature is crucial for improving relevance.
 Target Variable Encoding: The categorical label column ('Fake' or 'Real') is converted into a binary numerical target variable (0 for Real, 1 for Fake).
+
 B. Feature Representation (Vectorization)
+
 The model cannot directly process raw text. We use the Term Frequency-Inverse Document Frequency (TF-IDF) technique to transform the cleaned text into numerical feature vectors.
 TF-IDF: This method assigns a weight to each word in the text. The weight increases based on how frequently the word appears in a specific article (Term Frequency, TF) but is offset by how frequently the word appears across the entire dataset (Inverse Document Frequency, IDF). This ensures that common, irrelevant words (even after stop word removal) have a low score, while rare, distinctive words (which are often indicative of "fake" or "sensational" narratives) receive a high score.
+
 C. Machine Learning Model (Logistic Regression)
+
 We employ Logistic Regression as the primary classifier.
 Why Logistic Regression? It is a simple, computationally efficient, and highly interpretable classification algorithm. It is excellent for binary classification tasks and provides the probability that an article belongs to the 'Fake' class, making the model's decision-making transparent.
 Process: The model is trained on the numerical TF-IDF vectors and the corresponding binary labels. It learns the correlation between specific word weights and the probability of an article being flagged as fake. 
@@ -40,6 +46,7 @@ $90.2\%$
 A balanced measure of precision and recall.
 
 Application: How the AI Flags News
+
 When a new news article title is processed:
 The title is cleaned and converted into a TF-IDF vector using the vocabulary learned during training.
 This vector is fed into the Logistic Regression model.
@@ -49,7 +56,7 @@ If the probability exceeds a predefined threshold (e.g., $0.60$), the article is
 # 4. Report and Presentation: AI in African Media
 The Dual Role of AI in Combating Misinformation
 In the African media landscape, AI is a double-edged sword, serving as both a powerful generator of disinformation (e.g., deepfakes used in elections) and a critical tool for counter-disinformation efforts.
-Automation and Speed: AI tools are vital assistants for overwhelmed fact-checkers and journalists. They automate the initial scanning and analysis of massive volumes of social media posts and news articles in real-time, drastically reducing the time required to detect and verify claims.
+Automation and Speed:   AI tools are vital assistants for overwhelmed fact-checkers and journalists. They automate the initial scanning and analysis of massive volumes of social media posts and news articles in real-time, drastically reducing the time required to detect and verify claims.
 Scale and Scope: AI enables organizations to monitor and track the spread of disinformation campaigns across multiple platforms, identifying coordinated network behaviors and foreign-sponsored narratives. Initiatives across Kenya, Nigeria, and South Africa use AI-powered solutions to counter toxic content and election manipulation.
 Challenges and Ethical Concerns
 The deployment of AI for media detection in Africa faces specific, profound challenges:
