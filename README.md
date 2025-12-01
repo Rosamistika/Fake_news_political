@@ -1,9 +1,12 @@
+## DSA 2020. Artificial Inteligence.
 # Fake_news_political
 # AI-Powered Fake News Detector for African Media Context
 
 # 1. Project Objective and Problem Understanding
-The primary objective of this project is to develop a foundational Fake News Detection Model tailored for the unique challenges of the African media landscape. Misinformation and disinformation (often weaponized through deepfakes and AI-generated content) pose a significant threat to democratic processes, public health, and social cohesion across the continent. Our goal is to create a model that can flag potentially misleading news content, assisting journalists, fact-checkers, and citizens in verifying information quickly.
+The primary objective of this project is to develop a foundational Fake News Detection Model tailored for the unique challenges of the African media landscape. Misinformation and disinformation (often weaponized through deepfakes and AI-generated content) pose a significant threat to democratic processes, public health, and social cohesion across the continent.
+Our goal is to create a model that can flag potentially misleading news content, assisting journalists, fact-checkers, and citizens in verifying information quickly.
 The model is built and tested using a synthesized dataset of African and global political news, focusing on titles and content snippets, which are often the primary vectors for viral spread.
+
 
 # 2. Model Explanation and Technical Approach
 The fake news detection system is a Supervised Machine Learning Classifier based on textual features. The core steps of the model are as follows:
@@ -26,6 +29,9 @@ C. Machine Learning Model (Logistic Regression)
 We employ Logistic Regression as the primary classifier.
 Why Logistic Regression? It is a simple, computationally efficient, and highly interpretable classification algorithm. It is excellent for binary classification tasks and provides the probability that an article belongs to the 'Fake' class, making the model's decision-making transparent.
 Process: The model is trained on the numerical TF-IDF vectors and the corresponding binary labels. It learns the correlation between specific word weights and the probability of an article being flagged as fake. 
+
+
+
 
 # 3. Testing and Application
 Model Performance (Fictional Results)
@@ -53,6 +59,27 @@ This vector is fed into the Logistic Regression model.
 The model outputs a probability (e.g., $P(\text{Fake}) = 0.75$).
 If the probability exceeds a predefined threshold (e.g., $0.60$), the article is flagged with a HIGH FAKE NEWS RISK. Fact-checkers are then alerted to manually review the flagged content.
 
+# NLK Set up.
+Ensure necessary NLTK components are downloaded for robust text processing.
+The results are as shown;
+![alt text](image.png)
+
+## Data Processing Function.
+# Data Cleaning.
+Cleaning the Data removes special characters, converts to lowercase,
+removes stop words and lemmatizes the tokens.
+Therefore; we check if the input is valid, put lowecase and remove punctuations or numbers, Tokenize and remove stop words and lemmatize for combining similar word.
+![alt text](image-1.png)
+
+# Teaining The Model.
+Using TF-IDF it helps convert text into numerical feature vectors by weighting, this helps identify the key discriminating "fake news" keywords.Then Classify, predicts and evaluates the model.
+![alt text](image-2.png)
+
+# Model Interaction Test.
+Preprocessing the input headline using the same function as training, Vectorize the processed headline using the fitted vectorizer and predict and label the confidence.
+![alt text](image-3.png)
+
+
 # 4. Report and Presentation: AI in African Media
 The Dual Role of AI in Combating Misinformation
 In the African media landscape, AI is a double-edged sword, serving as both a powerful generator of disinformation (e.g., deepfakes used in elections) and a critical tool for counter-disinformation efforts.
@@ -76,10 +103,19 @@ Labor Exploitation
 The training of large language models (LLMs) often involves outsourcing data moderation and labeling tasks to workers in countries like Kenya and Uganda, who are paid low wages to review highly toxic and traumatic content.
 Moral Injury and Exploitation: The ethical cost of 'cleaning' the internet is disproportionately borne by precarious workers in the Global South.
 
+# Why it Matters.
+Political misinformation isn’t just annoying it shapes opinions, polarizes communities and influences elections.
+By building this model, we show how AI can step in as an early warning system for:
+
+flagging suspicious news
+
+filtering low-quality information
+
+improving digital media literacy
+
 # Conclusion: Contextualized and Human-Centric AI
 For AI in African media detection to be truly responsible and effective, it must adopt a human-centric and context-specific approach. This means:
 Developing Local Datasets: Investing in datasets that capture the linguistic, political, and cultural diversity of the continent.
 Augmentation over Automation: Using AI to augment the capacity of local journalists and fact-checkers, rather than attempting full automation which risks errors.
 Promoting Digital Literacy: Integrating media and digital literacy programs alongside the deployment of AI tools to empower citizens to critically evaluate information themselves.
 African-Led Regulation: Avoiding the wholesale adoption of Western AI regulation and instead establishing frameworks rooted in African values (like the principle of Ubuntu) that prioritize human rights, fairness, and inclusion.
-
